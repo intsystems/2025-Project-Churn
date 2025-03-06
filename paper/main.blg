@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "kour2014real"
+Warning--I didn't find a database entry for "hadash2018estimate"
+Warning--empty booktitle in kour2014fast
+You've used 1 entry,
+            2481 wiz_defined-function locations,
+            558 strings with 4561 characters,
+and the built_in function-call counts, 314 in all, are:
+= -- 21
+> -- 7
+< -- 1
++ -- 4
+- -- 2
+* -- 13
+:= -- 53
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 2
+chr.to.int$ -- 1
+cite$ -- 2
+duplicate$ -- 21
+empty$ -- 37
+format.name$ -- 3
+if$ -- 63
+int.to.chr$ -- 1
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 13
+num.names$ -- 3
+pop$ -- 14
+preamble$ -- 1
+purify$ -- 1
+quote$ -- 0
+skip$ -- 12
+stack$ -- 0
+substring$ -- 2
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 7
+warning$ -- 1
+while$ -- 2
+width$ -- 0
+write$ -- 18
+(There were 3 warnings)
