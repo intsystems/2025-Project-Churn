@@ -27,7 +27,7 @@ Abstract
 
 Research publications
 ===============================
-1.`Deep Learning for Survival Analysis: A Review   <https://arxiv.org/pdf/2305.14961>`_.
+1.`Deep Learning for Survival Analysis: A Review  <https://arxiv.org/pdf/2305.14961>`_.
 
 Presentations at conferences on the topic of research
 ================================================
