@@ -27,11 +27,11 @@ Abstract
 
 Research publications
 ===============================
-1. 
+1.`Deep Learning for Survival Analysis: A Review   <https://arxiv.org/pdf/2305.14961> `_
 
 Presentations at conferences on the topic of research
 ================================================
-1. 
+1. `Data Fusion Contest 2024 - задача оттока  <https://ods.ai/competitions/data-fusion2024-churn> `_
 
 Software modules developed as part of the study
 ======================================================
