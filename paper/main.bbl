@@ -1,13 +1,72 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Simon~Wiegrebe(2014)]{kour2014fast}
-Philipp~Kopper Simon~Wiegrebe.
-\newblock Deep learning for survival analysis: A review.
-\newblock 2014.
+\bibitem[Ahn et~al.(2020)Ahn, Hwang, Kim, Choi, and Kang]{Ahn2020}
+Jaehyun Ahn, Junsik Hwang, Doyoung Kim, Hyukgeun Choi, and Shinjin Kang.
+\newblock A survey on churn analysis in various business domains.
+\newblock \emph{IEEE Access}, 8:\penalty0 220816--220839, 2020.
+\newblock ISSN 2169-3536.
+\newblock \doi{10.1109/access.2020.3042657}.
+
+\bibitem[Cox(1972)]{Cox1972}
+D.~R. Cox.
+\newblock Regression models and life-tables.
+\newblock \emph{Journal of the Royal Statistical Society Series B: Statistical
+  Methodology}, 34\penalty0 (2):\penalty0 187--202, January 1972.
+\newblock ISSN 1467-9868.
+\newblock \doi{10.1111/j.2517-6161.1972.tb00899.x}.
+
+\bibitem[Wiegrebe et~al.(2024)Wiegrebe, Kopper, Sonabend, Bischl, and
+  Bender]{Wiegrebe2024}
+Simon Wiegrebe, Philipp Kopper, Raphael Sonabend, Bernd Bischl, and Andreas
+  Bender.
+\newblock Deep learning for survival analysis: a review.
+\newblock \emph{Artificial Intelligence Review}, 57\penalty0 (3), February
+  2024.
+\newblock ISSN 1573-7462.
+\newblock \doi{10.1007/s10462-023-10681-3}.
+
+\bibitem[Lee et~al.(2018)Lee, Zame, Yoon, and Van~der Schaar]{Lee2018}
+Changhee Lee, William Zame, Jinsung Yoon, and Mihaela Van~der Schaar.
+\newblock Deephit: A deep learning approach to survival analysis with competing
+  risks.
+\newblock \emph{Proceedings of the AAAI Conference on Artificial Intelligence},
+  32\penalty0 (1), April 2018.
+\newblock ISSN 2159-5399.
+\newblock \doi{10.1609/aaai.v32i1.11842}.
+
+\bibitem[Lee et~al.(2020)Lee, Yoon, and Schaar]{Lee2020}
+Changhee Lee, Jinsung Yoon, and Mihaela van~der Schaar.
+\newblock Dynamic-deephit: A deep learning approach for dynamic survival
+  analysis with competing risks based on longitudinal data.
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 67\penalty0
+  (1):\penalty0 122--133, January 2020.
+\newblock ISSN 1558-2531.
+\newblock \doi{10.1109/tbme.2019.2909027}.
+
+\bibitem[Ahmad et~al.(2019)Ahmad, Jafar, and Aljoumaa]{Ahmad2019}
+Abdelrahim~Kasem Ahmad, Assef Jafar, and Kadan Aljoumaa.
+\newblock Customer churn prediction in telecom using machine learning in big
+  data platform.
+\newblock \emph{Journal of Big Data}, 6\penalty0 (1), March 2019.
+\newblock ISSN 2196-1115.
+\newblock \doi{10.1186/s40537-019-0191-6}.
+
+\bibitem[Dorogush et~al.(2018)Dorogush, Ershov, and Gulin]{Dorogush2018}
+Anna~Veronika Dorogush, Vasily Ershov, and Andrey Gulin.
+\newblock Catboost: gradient boosting with categorical features support, 2018.
+
+\bibitem[Alabdallah et~al.(2022)Alabdallah, Ohlsson, Pashami, and
+  Rögnvaldsson]{Alabdallah2022}
+Abdallah Alabdallah, Mattias Ohlsson, Sepideh Pashami, and Thorsteinn
+  Rögnvaldsson.
+\newblock The concordance index decomposition: A measure for a deeper
+  understanding of survival prediction models.
+\newblock 2022.
+\newblock \doi{10.48550/ARXIV.2203.00144}.
 
 \end{thebibliography}
