@@ -22,7 +22,8 @@
 \usepackage{mathtools}
 \usepackage{comment}
 \usepackage{multicol}
-
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage[all]{xy}
 
 \usepackage{tikz}
@@ -48,11 +49,11 @@
 
 %----------------------------------------------------------------------------------------------------------
 
-\title[Пример слайдов по работе]{Пример слайдов по работе \\ курса}
-\author{И.\,О.\,Фамилия}
+\title[Анализ выживаемости]{Анализ выживаемости}
+\author{Е.\,В.\,Батарин}
 
 \institute[]{Московский физико-технический институт}
-\date[2022]{\small 10\;февраля\;2022\,г.}
+\date[2022]{\small 27\;марта\;2025\,г.}
 
 %---------------------------------------------------------------------------------------------------------
 \begin{document}
@@ -65,7 +66,7 @@
 \section{Слайд об исследованиях}
 \begin{frame}{Слайд об исследованиях}
 \bigskip
-Исследуется проблема \ldots.
+Исследуется проблема анализа выживаемости абонентов
 \begin{block}{Цель исследования~---}
 предложить метод \ldots.
 \end{block}
@@ -83,32 +84,55 @@
 \end{frame}
 
 %---------------------------------------------------------------------------------------------------------
-\section{Постановка задачи \ldots}
-\begin{frame}{Постановка задачи \ldots}
-Заданы
-\begin{enumerate}[1)]
-    \item признаки \ldots,
-    \item целевая переменная \ldots,
-    \item \ldots.
-\end{enumerate}
+\section{Постановка задачи анализа выживаемости}
+\begin{frame}{Постановка задачи анализа выживаемости}
 
-\ldots
+$\mathcal{T}=\{0,\ldots,T_{\max}\}$ - дискретное время
 
-\bigskip
+$\mathcal{K}=\{\emptyset,1,\cdots,K\}$ - множество событий
 
-Требуется выбрать модель \ldots из множества
-\[
-	\mathfrak{G} = \left\{\mathbf{g}| \mathbf{g}:\mathbb{R}^{n} \to \mathbb{Y}^\prime\right\}.
-\]
-Оптимизационная задача \ldots:
-\[
-	\mathbf{g} = \arg\min_{\mathbf{g} \in \mathfrak{G}} \mathcal{L}\bigr(\ldots\bigr),
-\]
-где $\mathcal{L}$~--- функция ошибки.
+$\tau^i=\min(T^i,C^i) \in\mathcal{T} $ - право-цензурированные отсчеты времени
 
-\bigskip
-\footnotetext[1]{\textit{Lopez-Paz D., Bottou L., Scholkopf B., Vapnik V.} Unifying distillation and privileged information // ICLR, 2016.}
-\footnotetext[2]{\textit{Hinton G., Vinyals O., Dean J.} Distilling the knowledge in a neural network // NIPS, 2015.}
+$\mathcal{X}^i(t)=\{\mathbf{x}^i(t_j^i):0\leq t_j^i\leq t\mathrm{~for~}j=1,\cdots,J^i\}$ - вектора признаков 
+
+$\mathcal{D}=\{(\mathcal{X}^i,\tau^{i},k^{i})\}_{i=1}^{N}$ - обучающая выборка
+
+
+
+{\fontsize{8.5}{10}\selectfont
+	\begin{align*}
+		& \begin{aligned}
+			F_{k^{*}}(\tau^{*}|\mathcal{X}^{*}) & = P(T\leq\tau^{*},k=k^{*}|\mathcal{X}^{*},T>t_{J^{*}}^{*}) \\
+			& =\sum_{\tau\leq\tau^*}P(T=\tau,k=k^*|\mathcal{X}^*,T>t_{J^*}^*).
+		\end{aligned}
+		\quad
+		& \begin{aligned}
+			S(\tau^{*}|\mathcal{X}^{*}) & = P(T>\tau^*|\mathcal{X}^{*},T>t_{J^*}^{*}) \\
+			& =1-\sum_{k\neq\emptyset}F_k(\tau^*|\mathcal{X}^{*}).
+		\end{aligned} \\
+		% Подписи под формулами без смещения формул
+		& \text{Функция распределения для события $k^*$}
+		& \hspace{55pt} \text{Функция выживания}
+	\end{align*}
+}
+
+
+
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../figures/survival_example.png}
+		\caption{Пример цензурирования}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../figures/dynamic_deephit_scheme_only_architecture.png}
+		\caption{Архитектура модели}
+	\end{minipage}
+\end{figure}
+
 \end{frame}
 
 %----------------------------------------------------------------------------------------------------------
@@ -145,6 +169,10 @@
 
 Оптимальная модель выбирается из класса,
 $\hat{\mathbf{g}} = \arg\min\limits_{\mathbf{g} \in \mathfrak{G}_{\text{cl}}} \mathcal{L}\bigr(\mathbf{g}\bigr).$
+
+\bigskip
+\footnotetext[1]{\textit{Lopez-Paz D., Bottou L., Scholkopf B., Vapnik V.} Unifying distillation and privileged information // ICLR, 2016.}
+\footnotetext[2]{\textit{Hinton G., Vinyals O., Dean J.} Distilling the knowledge in a neural network // NIPS, 2015.}
 \end{frame}
 
 %----------------------------------------------------------------------------------------------------------
@@ -153,10 +181,7 @@ $\hat{\mathbf{g}} = \arg\min\limits_{\mathbf{g} \in \mathfrak{G}_{\text{cl}}} \m
 \justifying
 
 На графике показана зависимость значения параметров$w_i$ в зависимости от параметра~$l_1$-регуляризации~$C$.
-\begin{figure}[h!]
-\includegraphics[width=0.45\textwidth]{../figures/log_reg_cs_exp.eps}
-\includegraphics[width=0.45\textwidth]{../figures/log_reg_cs_exp.eps}
-\end{figure}
+
 
 С увеличением параметра регуляризации~$C$ число ненулевых параметров~$w_i$ уменьшается.
 
