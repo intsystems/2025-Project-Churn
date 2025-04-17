@@ -1,6 +1,9 @@
 \babel@toc {russian}{}\relax 
-\beamer@sectionintoc {1}{Слайд об исследованиях}{2}{0}{1}
-\beamer@sectionintoc {2}{Постановка задачи анализа выживаемости}{3}{0}{2}
-\beamer@sectionintoc {3}{Предложенный метод \ldots }{4}{0}{3}
-\beamer@sectionintoc {4}{Анализ предложенного метода \ldots }{5}{0}{4}
-\beamer@sectionintoc {5}{Выводы}{6}{0}{5}
+\beamer@sectionintoc {1}{Цели исследования}{2}{0}{1}
+\beamer@sectionintoc {2}{Обозначения}{3}{0}{2}
+\beamer@sectionintoc {3}{Иллюстрация правого цензурирования}{4}{0}{3}
+\beamer@sectionintoc {4}{Предложенный метод}{5}{0}{4}
+\beamer@sectionintoc {5}{Архитектура модели}{6}{0}{5}
+\beamer@sectionintoc {6}{Критерии качества модели анализа выживаемости}{7}{0}{6}
+\beamer@sectionintoc {7}{Свойство добавки $\mathcal {L}_2$}{8}{0}{7}
+\beamer@sectionintoc {8}{Выводы}{9}{0}{8}

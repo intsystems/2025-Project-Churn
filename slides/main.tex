@@ -25,6 +25,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[all]{xy}
+\usepackage{bbm}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows}
@@ -34,6 +35,12 @@
 
 \usepackage{caption}
 \captionsetup{skip=0pt,belowskip=0pt}
+\renewcommand{\figurename}{}{}%  
+\renewcommand{\figurename}{\relax}%
+
+\makeatletter
+\def\fnum@figure#1{\ignorespaces}
+\makeatother
 
 \newtheorem{rustheorem}{Теорема}
 \newtheorem{russtatement}{Утверждение}
@@ -49,7 +56,7 @@
 
 %----------------------------------------------------------------------------------------------------------
 
-\title[Анализ выживаемости]{Анализ выживаемости}
+\title[Нейросетевые подходы к решению задачи оттока абонентов]{Нейросетевые подходы к решению задачи оттока абонентов}
 \author{Е.\,В.\,Батарин}
 
 \institute[]{Московский физико-технический институт}
@@ -63,29 +70,31 @@
 \end{frame}
 
 %----------------------------------------------------------------------------------------------------------
-\section{Слайд об исследованиях}
-\begin{frame}{Слайд об исследованиях}
+\section{Цели исследования}
+\begin{frame}{Цели исследования}
 \bigskip
-Исследуется проблема анализа выживаемости абонентов
-\begin{block}{Цель исследования~---}
-предложить метод \ldots.
+
+\begin{block}{Задача}
+Создать модель предсказания оттока абонентов на основе методов анализа выживаемости
 \end{block}
-\begin{block}{Требуется предложить}
+\begin{block}{Требуется}
+Предложить метод, который: 
 \justifying
 \begin{enumerate}[1)]
-\item метод \ldots,
-\item метод \ldots,
-\item метод \ldots.
+\item Учитывает неполноту информации о факте оттока
+\item Упорядочивает абонентов в зависимости от их времени оттока
+\item Является интерпретируемым
 \end{enumerate}
 \end{block}
 \begin{block}{Решение}
-Для \ldots.
+Использовать нейросетевую модель с дискретным временем
 \end{block}
 \end{frame}
 
 %---------------------------------------------------------------------------------------------------------
-\section{Постановка задачи анализа выживаемости}
-\begin{frame}{Постановка задачи анализа выживаемости}
+\section{Обозначения}
+\begin{frame}{Обозначения}
+
 
 $\mathcal{T}=\{0,\ldots,T_{\max}\}$ - дискретное время
 
@@ -118,100 +127,167 @@ $\mathcal{D}=\{(\mathcal{X}^i,\tau^{i},k^{i})\}_{i=1}^{N}$ - обучающая 
 
 
 
+\end{frame}
+
+
+%---------------------------------------------------------------------------------------------------------
+\section{Иллюстрация правого цензурирования}
+\begin{frame}{Иллюстрация правого цензурирования}
+
+
+
 \begin{figure}[h!]
 	\centering
-	\begin{minipage}{0.45\textwidth}
+	\begin{minipage}{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{../figures/survival_example.png}
-		\caption{Пример цензурирования}
+		\includegraphics[width=0.9\linewidth]{../figures/survival_example.png}
+		\renewcommand{\figurename}{}{}%
+		\caption{Цензурирование абонентов}
 	\end{minipage}
-	\hfill
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{../figures/dynamic_deephit_scheme_only_architecture.png}
-		\caption{Архитектура модели}
-	\end{minipage}
+
 \end{figure}
 
 \end{frame}
-
 %----------------------------------------------------------------------------------------------------------
-\section{Предложенный метод \ldots}
-\begin{frame}{Предложенный метод \ldots}
-~\\[-1mm]
-Заданы
-\begin{enumerate}[1)]
-	\item \ldots,
-	\item \ldots.
-\end{enumerate}
 
-\medskip
-Параметрические семейства:
-\[
-\setlength\abovedisplayskip{0pt}
-\mathfrak{F} = \left\{\mathbf{f}| \mathbf{f} = \text{softmax}\bigr(\mathbf{v}\bigr(\mathbf{x}\bigr)/T\bigr), \quad \mathbf{v}: \mathbb{R}^{n} \to \mathbb{R}^K \right\},
-\]
-\[
-\mathfrak{G} = \left\{\mathbf{g}| \mathbf{g} = \text{softmax}\bigr(\mathbf{z}\bigr(\mathbf{x}\bigr)/T\bigr), \quad \mathbf{z}: \mathbb{R}^n \to \mathbb{R}^K \right\},
-\]
-где~\ldots.
+\section{Предложенный метод}
+\begin{frame}{Предложенный метод}
+	
+	\begin{block}{Постановка задачи}
+		На основе обучающей выборки $\mathcal{D}$ построить аппроксимации функции распределения и функции выживаемости: $\hat{F}_{k^*}(\tau^*|\mathcal{X}^*)$ и $\hat{S}(\tau^{*}|\mathcal{X}^{*}) =1-\sum_{k\neq\emptyset}\hat{F}_{k^*}(\tau^*|\mathcal{X}^{*})$
+	\end{block}
+	
+	\begin{block}{Функция потерь}
+		Задача сводится к минимизации функции $\mathcal{L}_{\mathrm{Total}}=\mathcal{L}_1+\mathcal{L}_2+\mathcal{L}_3$, которая состоит из слагаемых:
+		
+		\scriptsize
+		\[
+		\begin{aligned}
+			\mathcal{L}_{1} = -\sum_{i=1}^N \biggl[ 
+			&\mathbbm{1}(k^i\neq\emptyset)\cdot\log\left(
+			\frac{o_{k^i,\tau^i}^i}{
+				1-\sum_{k\neq\emptyset}\sum_{n\leq t_{Ji}^i}o_{k,n}^i}
+			\right) 
+			 +\mathbbm{1}(k^i=\emptyset)\cdot\log\left(
+			1-\sum_{k\neq\emptyset}\hat{F}_k(\tau^i|\mathcal{X}^i)
+			\right)
+			\biggr]
+		\end{aligned}
+		\]
+		
+		
+		\scriptsize
+		\[
+		\begin{aligned}
+		\mathcal{L}_2=\sum_{k=1}^K\alpha_k\sum_{i\neq j}A_{kij}\cdot\eta\left(\hat{F}_k(s^i+t_{J^i}^i|\mathcal{X}^i),\hat{F}_k(s^i+t_{J^j}^j|\mathcal{X}^j)\right)
+		\end{aligned}
+		\]
+		
+		\scriptsize
+		\[
+		\begin{aligned}
+		\mathcal{L}_3=\beta\cdot\sum_{i=1}^N\sum_{j=0}^{J^i-1}\sum_{d\in\mathcal{I}}(1-m_{j+1,d}^i)\cdot\zeta(x_{j+1,d}^i,y_{j,d}^i)	
+		\end{aligned}
+		\]
+		где $s^i=\tau^i-t_{J^i}^i$, $A_{kij}=\mathbbm{1}(k^i=k,s^i<s^j)$ , $\eta(a,b)=\exp\left(-\frac{a-b}{\sigma}\right)$, $o_{k,n}^i$ - выходы модели
 
-\medskip
-Функция ошибки
-\[
-\setlength\abovedisplayskip{0pt}
-\begin{aligned}
-   \mathcal{L}\bigr(\mathbf{g}\bigr) = &-\sum_{i=1}^{m}\underbrace{{\sum_{k=1}^{K}y^k_i\log\mathbf{g}\bigr(\mathbf{x}_i\bigr)\bigr|_{T=1}}}_{\text{исходная функция потерь}}- \sum_{i=1}^{m}\underbrace{{\sum_{k=1}^{K}\mathbf{f}\bigr(\mathbf{x}_i\bigr)\bigr|_{T=T_0}\log\mathbf{g}\bigr(\mathbf{x}_i\bigr)\bigr|_{T=T_0}}}_{\text{слагаемое дистилляции}},
-\end{aligned}
-\setlength\belowdisplayskip{0pt}
-\]
-где~\ldots.
+	\end{block}
+	
 
-Оптимальная модель выбирается из класса,
-$\hat{\mathbf{g}} = \arg\min\limits_{\mathbf{g} \in \mathfrak{G}_{\text{cl}}} \mathcal{L}\bigr(\mathbf{g}\bigr).$
+	
+	
+\end{frame}
+%----------------------------------------------------------------------------------------------------------
 
-\bigskip
-\footnotetext[1]{\textit{Lopez-Paz D., Bottou L., Scholkopf B., Vapnik V.} Unifying distillation and privileged information // ICLR, 2016.}
-\footnotetext[2]{\textit{Hinton G., Vinyals O., Dean J.} Distilling the knowledge in a neural network // NIPS, 2015.}
+
+
+
+
+\section{Архитектура модели}
+\begin{frame}{Архитектура модели }
+	
+	
+	\begin{figure}[h!]
+		
+		\begin{minipage}{0.8\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{../figures/dynamic_deephit_scheme_only_architecture.png}
+			\renewcommand{\figurename}{}{}%
+		\end{minipage}
+	\end{figure}
+	
+	
 \end{frame}
 
 %----------------------------------------------------------------------------------------------------------
-\section{Анализ предложенного метода \ldots}
-\begin{frame}{Анализ предложенного метода \ldots}
-\justifying
+\section{Критерии качества модели анализа выживаемости}
+\begin{frame}{Критерии качества модели анализа выживаемости}
 
-На графике показана зависимость значения параметров$w_i$ в зависимости от параметра~$l_1$-регуляризации~$C$.
+\begin{block}{Определение $C$-индекса}
+
+Пусть для пары абонентов $(i,j)$ определены $\tau_i$  < $\tau_j$ - моменты времени (возможно, цензурированные), $\delta_i$ - индекс цензурирования, равный $0$, если $\tau_i$ право-цензурировано и $1$ - в противном случае. Также обозначим через $\hat{F}_{k,i}$ и $\hat{F}_{k,j}$ вероятности оттока до момента по событию $k$ времени $\tau_i$ для абонентов $i$ и $j$ соответственно (оцененные моделью функции распределения). Тогда C-индекс определяется следующим образом:
+
+$$C\text{-}index =
+\frac{
+	\sum\limits_{i,j} \mathbf{1}_{\tau_i < \tau_j} \cdot \mathbf{1}_{\hat{F}_{k,i} > \hat{F}_{k,j}} \cdot \delta_i
+}{
+	\sum\limits_{i,j} \mathbf{1}_{\tau_i < \tau_j} \cdot \delta_i
+}$$	
+	
+	
+\end{block}
 
 
-С увеличением параметра регуляризации~$C$ число ненулевых параметров~$w_i$ уменьшается.
+\begin{block}{Понятие верно упорядоченной пары}
+
+Пара абонентов $(i,j)$ считается верно упорядоченной (отранжированной), если для оцененных моделью функций распределений $\hat{F}_{k,i}$ и $\hat{F}_{k,j}$ выполнено неравенство: 
+
+$$ \hat{F}_{k,i}(\tau_i ) >  \hat{F}_{k,j}(\tau_i ) $$ 
+
+	
+\end{block}
+	
+\end{frame}
+
+%----------------------------------------------------------------------------------------------------------
+\section{Свойство добавки $\mathcal{L}_2$}
+\begin{frame}{Свойство добавки $\mathcal{L}_2$}
+	
+\begin{block}{Определение отступов}
+	
+		Пусть $(i,j)$ - пара абонентов, для которых произошло событие оттока $k$ в моменты времени $\tau^{(i)}$ и $\tau^{(j)}$ соответственно, причем $\tau^{(i)} < \tau^{(j)}$. Тогда $M_{k,i,j}$ определяется как:
+		
+		$$M_{k,i,j} = \hat{F}_k(s^i+t_{J^i}^i|\mathcal{X}^i) - \hat{F}_k(s^i+t_{J^j}^j|\mathcal{X}^j)$$
+		
+\end{block}
+
+
+\begin{block}{Основное свойство}
+	Пусть $$\mathcal{L}_2 =\sum_{k=1}^K\alpha_k\cdot\sum_{i\neq j}A_{k,i,j}\cdot\eta\left(\hat{F}_k(s^i+t_{J^i}^i|\mathcal{X}^i) , \hat{F}_k(s^i+t_{J^j}^j|\mathcal{X}^j))\right)$$- добавка к функции потерь. Тогда $\mathcal{L}_2$ является убывающей от отступов функцией.  
+\end{block}
 
 \end{frame}
 
 %----------------------------------------------------------------------------------------------------------
 \section{Выводы}
 \begin{frame}{Выводы}
-\justifying
-	\begin{enumerate}
 	\justifying
-	    \item Предложен \ldots.
-        \item Доказаны теоремы \ldots, 
-        \begin{itemize}
-            \item[---] \ldots,
-            \item[---] \ldots.
-        \end{itemize}
-        \item Предложен метод \ldots
-        \begin{itemize}
-            \item[---] \ldots,
-            \item[---] \ldots.
-        \end{itemize}
-        \item Предложены методы \ldots
-        \begin{itemize}
-            \item[---] \ldots,
-            \item[---] \ldots.
-        \end{itemize}
-        \item Предложена вероятностная интерпретации \ldots.
-	\end{enumerate}
+	\begin{minipage}{0.85\textwidth} % уменьшаем ширину области до 85% от слайда
+		\begin{enumerate}
+			\justifying
+			\item Предложена нейросетевая модель анализа выживаемости с дискретным временем для решения задачи предсказания оттока абонентов
+			
+			\item Построена специфическая для задачи функция потерь и обосновано свойство ее добавки $\mathcal{L}_2$
+			
+			\item Проведен вычислительный эксперимент, в котором показано, что применение модели анализа выживаемости позволяет увеличить по сравнению с моделями градиентного бустинга: 
+			\begin{itemize}
+				\item Точность предсказания месяца оттока,
+				\item $C$-индекс.
+			\end{itemize}
+		\end{enumerate}
+	\end{minipage}
 \end{frame}
+
 %----------------------------------------------------------------------------------------------------------
 
 \end{document} 
