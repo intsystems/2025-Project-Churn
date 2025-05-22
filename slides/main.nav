@@ -2,7 +2,7 @@
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\sectionentry {1}{Цели исследования}{2}{Цели исследования}{0}}
+\headcommand {\sectionentry {1}{Нейросетевые модели анализа выживаемости для решения задачи предсказания оттока абонентов}{2}{Нейросетевые модели анализа выживаемости для решения задачи предсказания оттока абонентов}{0}}
 \headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\beamer@sectionpages {2}{2}}
@@ -37,11 +37,21 @@
 \headcommand {\beamer@framepages {8}{8}}
 \headcommand {\beamer@sectionpages {8}{8}}
 \headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\sectionentry {8}{Выводы}{9}{Выводы}{0}}
+\headcommand {\sectionentry {8}{Описание вычислительного эксперимента}{9}{Описание вычислительного эксперимента}{0}}
 \headcommand {\slideentry {8}{0}{1}{9/9}{}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@partpages {1}{9}}
-\headcommand {\beamer@subsectionpages {9}{9}}
 \headcommand {\beamer@sectionpages {9}{9}}
-\headcommand {\beamer@documentpages {9}}
-\headcommand {\gdef \inserttotalframenumber {9}}
+\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\sectionentry {9}{Результаты вычислительных экспериментов}{10}{Результаты вычислительных экспериментов}{0}}
+\headcommand {\slideentry {9}{0}{1}{10/10}{}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@sectionpages {10}{10}}
+\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\sectionentry {10}{Посылки на защиту}{11}{Посылки на защиту}{0}}
+\headcommand {\slideentry {10}{0}{1}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@partpages {1}{11}}
+\headcommand {\beamer@subsectionpages {11}{11}}
+\headcommand {\beamer@sectionpages {11}{11}}
+\headcommand {\beamer@documentpages {11}}
+\headcommand {\gdef \inserttotalframenumber {11}}
