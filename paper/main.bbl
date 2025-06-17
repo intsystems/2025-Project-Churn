@@ -1,72 +1,99 @@
-\begin{thebibliography}{8}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
 
-\bibitem[Ahn et~al.(2020)Ahn, Hwang, Kim, Choi, and Kang]{Ahn2020}
-Jaehyun Ahn, Junsik Hwang, Doyoung Kim, Hyukgeun Choi, and Shinjin Kang.
-\newblock A survey on churn analysis in various business domains.
-\newblock \emph{IEEE Access}, 8:\penalty0 220816--220839, 2020.
-\newblock ISSN 2169-3536.
-\newblock \doi{10.1109/access.2020.3042657}.
+\bibitem{Ahn2020}
+\selectlanguageifdefined{english}
+A Survey on Churn Analysis in Various Business Domains~/ Jaehyun~Ahn,
+  Junsik~Hwang, Doyoung~Kim et~al.~// \BibEmph{IEEE Access}. ---
+\newblock 2020. ---
+\newblock Vol.~8. ---
+\newblock Pp.~220816--220839.
 
-\bibitem[Cox(1972)]{Cox1972}
-D.~R. Cox.
-\newblock Regression models and life-tables.
-\newblock \emph{Journal of the Royal Statistical Society Series B: Statistical
-  Methodology}, 34\penalty0 (2):\penalty0 187--202, January 1972.
-\newblock ISSN 1467-9868.
-\newblock \doi{10.1111/j.2517-6161.1972.tb00899.x}.
+\bibitem{Cox1972}
+\selectlanguageifdefined{english}
+\BibEmph{Cox,~D.~R.} Regression Models and Life-Tables~/ D.~R.~Cox~//
+  \BibEmph{Journal of the Royal Statistical Society Series B: Statistical
+  Methodology}. ---
+\newblock 1972. --- \bbljan{}. ---
+\newblock Vol.~34, no.~2. ---
+\newblock Pp.~187--202.
 
-\bibitem[Wiegrebe et~al.(2024)Wiegrebe, Kopper, Sonabend, Bischl, and
-  Bender]{Wiegrebe2024}
-Simon Wiegrebe, Philipp Kopper, Raphael Sonabend, Bernd Bischl, and Andreas
-  Bender.
-\newblock Deep learning for survival analysis: a review.
-\newblock \emph{Artificial Intelligence Review}, 57\penalty0 (3), February
-  2024.
-\newblock ISSN 1573-7462.
-\newblock \doi{10.1007/s10462-023-10681-3}.
+\bibitem{Wiegrebe2024}
+\selectlanguageifdefined{english}
+Deep learning for survival analysis: a review~/ Simon~Wiegrebe, Philipp~Kopper,
+  Raphael~Sonabend et~al.~// \BibEmph{Artificial Intelligence Review}. ---
+\newblock 2024. --- \bblfeb{}. ---
+\newblock Vol.~57, no.~3.
 
-\bibitem[Lee et~al.(2018)Lee, Zame, Yoon, and Van~der Schaar]{Lee2018}
-Changhee Lee, William Zame, Jinsung Yoon, and Mihaela Van~der Schaar.
-\newblock Deephit: A deep learning approach to survival analysis with competing
-  risks.
-\newblock \emph{Proceedings of the AAAI Conference on Artificial Intelligence},
-  32\penalty0 (1), April 2018.
-\newblock ISSN 2159-5399.
-\newblock \doi{10.1609/aaai.v32i1.11842}.
+\bibitem{Lee2018}
+\selectlanguageifdefined{english}
+DeepHit: A Deep Learning Approach to Survival Analysis With Competing Risks~/
+  Changhee~Lee, William~Zame, Jinsung~Yoon, Mihaela~Van~der~Schaar~//
+  \BibEmph{Proceedings of the AAAI Conference on Artificial Intelligence}. ---
+\newblock 2018. --- \bblapr{}. ---
+\newblock Vol.~32, no.~1.
 
-\bibitem[Lee et~al.(2020)Lee, Yoon, and Schaar]{Lee2020}
-Changhee Lee, Jinsung Yoon, and Mihaela van~der Schaar.
-\newblock Dynamic-deephit: A deep learning approach for dynamic survival
-  analysis with competing risks based on longitudinal data.
-\newblock \emph{IEEE Transactions on Biomedical Engineering}, 67\penalty0
-  (1):\penalty0 122--133, January 2020.
-\newblock ISSN 1558-2531.
-\newblock \doi{10.1109/tbme.2019.2909027}.
+\bibitem{Ahmad2019}
+\selectlanguageifdefined{english}
+\BibEmph{Ahmad,~Abdelrahim~Kasem}. Customer churn prediction in telecom using
+  machine learning in big data platform~/ Abdelrahim~Kasem~Ahmad, Assef~Jafar,
+  Kadan~Aljoumaa~// \BibEmph{Journal of Big Data}. ---
+\newblock 2019. --- \bblmar{}. ---
+\newblock Vol.~6, no.~1.
 
-\bibitem[Ahmad et~al.(2019)Ahmad, Jafar, and Aljoumaa]{Ahmad2019}
-Abdelrahim~Kasem Ahmad, Assef Jafar, and Kadan Aljoumaa.
-\newblock Customer churn prediction in telecom using machine learning in big
-  data platform.
-\newblock \emph{Journal of Big Data}, 6\penalty0 (1), March 2019.
-\newblock ISSN 2196-1115.
-\newblock \doi{10.1186/s40537-019-0191-6}.
+\bibitem{Dorogush2018}
+\selectlanguageifdefined{english}
+\BibEmph{Dorogush,~Anna~Veronika}. CatBoost: gradient boosting with categorical
+  features support. ---
+\newblock 2018.
 
-\bibitem[Dorogush et~al.(2018)Dorogush, Ershov, and Gulin]{Dorogush2018}
-Anna~Veronika Dorogush, Vasily Ershov, and Andrey Gulin.
-\newblock Catboost: gradient boosting with categorical features support, 2018.
-
-\bibitem[Alabdallah et~al.(2022)Alabdallah, Ohlsson, Pashami, and
-  Rögnvaldsson]{Alabdallah2022}
-Abdallah Alabdallah, Mattias Ohlsson, Sepideh Pashami, and Thorsteinn
-  Rögnvaldsson.
-\newblock The concordance index decomposition: A measure for a deeper
-  understanding of survival prediction models.
+\bibitem{Alabdallah2022}
+\selectlanguageifdefined{english}
+The Concordance Index decomposition: A measure for a deeper understanding of
+  survival prediction models~/ Abdallah~Alabdallah, Mattias~Ohlsson,
+  Sepideh~Pashami, Thorsteinn~Rögnvaldsson. ---
 \newblock 2022.
-\newblock \doi{10.48550/ARXIV.2203.00144}.
+
+\bibitem{Kaplan1958}
+\selectlanguageifdefined{english}
+\BibEmph{Kaplan,~E.~L.} Nonparametric Estimation from Incomplete Observations~/
+  E.~L.~Kaplan, Paul~Meier~// \BibEmph{Journal of the American Statistical
+  Association}. ---
+\newblock 1958. --- \bbljun{}. ---
+\newblock Vol.~53, no. 282. ---
+\newblock Pp.~457--481.
+
+\bibitem{Katzman2018}
+\selectlanguageifdefined{english}
+DeepSurv: personalized treatment recommender system using a Cox proportional
+  hazards deep neural network~/ Jared~L.~Katzman, Uri~Shaham,
+  Alexander~Cloninger et~al.~// \BibEmph{BMC Medical Research Methodology}. ---
+\newblock 2018. --- \bblfeb{}. ---
+\newblock Vol.~18, no.~1.
+
+\bibitem{Gensheimer2019}
+\selectlanguageifdefined{english}
+\BibEmph{Gensheimer,~Michael~F.} A scalable discrete-time survival model for
+  neural networks~/ Michael~F.~Gensheimer, Balasubramanian~Narasimhan~//
+  \BibEmph{PeerJ}. ---
+\newblock 2019. --- \bbljan{}. ---
+\newblock Vol.~7. ---
+\newblock P.~e6257.
+
+\bibitem{Lee2020}
+\selectlanguageifdefined{english}
+\BibEmph{Lee,~Changhee}. Dynamic-DeepHit: A Deep Learning Approach for Dynamic
+  Survival Analysis With Competing Risks Based on Longitudinal Data~/
+  Changhee~Lee, Jinsung~Yoon, Mihaela van~der~Schaar~// \BibEmph{IEEE
+  Transactions on Biomedical Engineering}. ---
+\newblock 2020. --- \bbljan{}. ---
+\newblock Vol.~67, no.~1. ---
+\newblock Pp.~122--133.
 
 \end{thebibliography}
