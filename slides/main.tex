@@ -27,6 +27,10 @@
 \usepackage[all]{xy}
 \usepackage{bbm}
 
+ \usepackage{multirow}
+
+\usepackage{colortbl} 
+
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows}
 
@@ -60,7 +64,7 @@
 \author{Е.\,В.\,Батарин}
 
 \institute[]{Московский физико-технический институт}
-\date[2022]{\small 27\;марта\;2025\,г.}
+\date[2022]{\small 24\;июня\;2025\,г.}
 
 %---------------------------------------------------------------------------------------------------------
 \begin{document}
@@ -217,6 +221,7 @@ $\mathcal{D}=\{(\mathcal{X}^i,\tau^{i},k^{i})\}_{i=1}^{N}$ - обучающая 
 	\end{figure}
 	
 	
+Для обучения используются процедуры Grid Search и Learning Rate Finder
 \end{frame}
 
 %----------------------------------------------------------------------------------------------------------
@@ -301,11 +306,20 @@ $$ \hat{F}_{k,i}(\tau_i ) >  \hat{F}_{k,j}(\tau_i ) $$
 \begin{frame}{Результаты вычислительных экспериментов}
 	
 	\begin{block}{Точность предсказания}
-		\begin{enumerate}[1)]
-		\item Только новые признаки: $78.5\%$
-		\item Только исходные признаки: $80.6\%$
-		\item Потеря в точности: $2.1\%$
-	\end{enumerate}	
+		
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|c|l|l|l|}
+			\hline
+			Название модели                                            & \multicolumn{1}{l|}{Исходная точность} & Точность на 5 признаках                                 & Потеря точности                                        & $C$-индекс                                            \\ \hline
+			DeepHit                                                    &                                        & $73.1\%$                                                & $7.5\%$                                                & $0.74$                                                \\ \cline{1-1} \cline{3-5} 
+			PMF                                                        &                                        & $75.2\%$                                                & $5.4\%$                                                & $0.75$                                                \\ \cline{1-1} \cline{3-5} 
+			Nnet-survival                                              &                                        & $74.8\%$                                                & $5.8\%$                                                & $0.77$                                                \\ \cline{1-1} \cline{3-5} 
+			\cellcolor[HTML]{FE0000}{\color[HTML]{000000} Наша модель} & \multirow{-4}{*}{$80.6\%$}             & \cellcolor[HTML]{FE0000}{\color[HTML]{000000} $78.5\%$} & \cellcolor[HTML]{FE0000}{\color[HTML]{000000} $2.1\%$} & \cellcolor[HTML]{FE0000}{\color[HTML]{000000} $0.81$} \\ \hline
+		\end{tabular}%
+	}
+\end{table}
 
 		
 	\end{block}
@@ -315,7 +329,7 @@ $$ \hat{F}_{k,i}(\tau_i ) >  \hat{F}_{k,j}(\tau_i ) $$
  
  	\begin{figure}[h!]
  	
- 	\begin{minipage}{0.8\textwidth}
+ 	\begin{minipage}{0.6\textwidth}
  		\centering
  		\includegraphics[width=\linewidth]{../figures/deephit_shap_baseline1.2.png}
  		\renewcommand{\figurename}{}{}%
@@ -325,7 +339,48 @@ $$ \hat{F}_{k,i}(\tau_i ) >  \hat{F}_{k,j}(\tau_i ) $$
 	\end{block}
 	
 \end{frame}
+%----------------------------------------------------------------------------------------------------------
+\section{Интерпретация плотностей вероятностей - июнь и июль}
+\begin{frame}{Интерпретация плотностей вероятностей - июнь и июль}
 
+	
+	\centering
+\begin{minipage}{0.48\textwidth}
+	\centering
+	\includegraphics[width=\linewidth]{../figures/prob_0_our.png}
+	\captionof{figure}{Июнь 2024}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+	\centering
+	\includegraphics[width=\linewidth]{../figures/prob_1_our.png}
+	\captionof{figure}{Июль 2024}
+\end{minipage}
+
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------------------------
+\section{Интерпретация плотностей вероятностей - август и сентябрь}
+\begin{frame}{Интерпретация плотностей вероятностей - август и сентябрь}
+	
+	
+	\centering
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../figures/prob_2_our.png}
+		\captionof{figure}{Август 2024}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{../figures/prob_3_our.png}
+		\captionof{figure}{Сентябрь 2024}
+	\end{minipage}
+	
+	
+	
+\end{frame}
 
 
 %----------------------------------------------------------------------------------------------------------
@@ -342,7 +397,12 @@ $$ \hat{F}_{k,i}(\tau_i ) >  \hat{F}_{k,j}(\tau_i ) $$
 			\item Проведен вычислительный эксперимент, в котором показано, что применение модели анализа выживаемости позволяет получить новые признаки, которые: 
 			\begin{itemize}
 				\item Имеют наибольшую SHAP-значимость
-				\item Вносят вклад в точность предсказаний, сопоставимый с исходными признаками
+				\item Вносят вклад в точность предсказаний, сопоставимый с исходными признаками, причем потеря в точности минимальна по сравнению с остальными моделями
+			\end{itemize}
+			\item Исследованы свойства модели по кластеризации абонентов: 
+						\begin{itemize}
+				\item Модель хорошо отделяет абонентов отточников от абонентов сохраняющихся
+				\item Модель плохо отделяет отточников между собой, что связано с медленным изменением абоненстких данных на месячном периоде
 			\end{itemize}
 		\end{enumerate}
 	\end{minipage}

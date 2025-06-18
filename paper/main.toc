@@ -9,45 +9,46 @@
 \contentsline {section}{\numberline {1.4}Поставнока в временным рядом векторов-признаков}{9}{section.1.4}%
 \contentsline {chapter}{\chapternumberline {2}Существующие подходы в анализе выживаемости}{10}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Непрерывные модели выживаемости}{10}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Оценка Каплана–Майера}{10}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Модель пропорциональных рисков Кокса}{11}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}DeepSurv}{11}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Дискретные модели выживаемости}{12}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Nnet-survival}{12}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}PMF (Probability Mass Function)}{13}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Модель DeepHit}{13}{subsection.2.2.3}%
-\contentsline {chapter}{\chapternumberline {3}Описание подхода, разработанного в данной работе}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Решение задачи для временного ряда векторов-признаков}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Описание архитектуры модели}{16}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Свойства добавки $\mathcal {L}_2$}{17}{section.3.3}%
-\contentsline {chapter}{\chapternumberline {4}Численные эксперименты}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Описание постановки задачи}{19}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Описание данных}{19}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Критерии качества}{20}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Метод подбора гиперпараметров и шага обучения}{21}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Grid Search}{21}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Learning Rate Finder}{21}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}DeepHit в задаче бинарной классификации}{22}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Число эпох обучения = 3}{22}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Число эпох обучения = 30}{23}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}DeepHit в задаче многоклассовой классификации}{24}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Вклад признаков моделей}{25}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Значение C-индекса модели}{25}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Интерпретация вероятностей выживания}{25}{subsection.4.6.3}%
-\contentsline {section}{\numberline {4.7}PMF в задаче многоклассовой классификации}{28}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Вклад признаков моделей}{29}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Значение C-индекса модели}{29}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Интерпретация вероятностей выживания}{29}{subsection.4.7.3}%
-\contentsline {section}{\numberline {4.8}Nnet-survival в задаче многоклассовой классификации}{32}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Вклад признаков моделей}{33}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Значение C-индекса модели}{33}{subsection.4.8.2}%
-\contentsline {subsection}{\numberline {4.8.3}Интерпретация вероятностей выживания}{33}{subsection.4.8.3}%
-\contentsline {section}{\numberline {4.9}Наша модель в задаче многоклассовой классификации}{36}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Вклад признаков моделей}{37}{subsection.4.9.1}%
-\contentsline {subsection}{\numberline {4.9.2}Значение C-индекса модели}{37}{subsection.4.9.2}%
-\contentsline {subsection}{\numberline {4.9.3}Интерпретация вероятностей выживания}{37}{subsection.4.9.3}%
-\contentsline {section}{\numberline {4.10}Сравнение различных моделей}{40}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}Сравнение метрик}{40}{subsection.4.10.1}%
-\contentsline {subsection}{\numberline {4.10.2}Вывод по интерпретации вероятностей выживания}{40}{subsection.4.10.2}%
-\contentsline {chapter}{Заключение}{41}{chapter*.31}%
-\contentsline {chapter}{{\cyrillictext \CYRL \cyri \cyrt \cyre \cyrr \cyra \cyrt \cyru \cyrr \cyra }}{42}{chapter*.32}%
+\contentsline {section}{\numberline {2.2}Оценка Каплана--Майера}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Модель пропорциональных рисков Кокса}{12}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}DeepSurv}{15}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Дискретные модели выживаемости}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Nnet-survival}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}PMF (Probability Mass Function)}{16}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Модель DeepHit}{17}{subsection.2.3.3}%
+\contentsline {chapter}{\chapternumberline {3}Описание подхода, разработанного в данной работе}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Решение задачи для временного ряда векторов-признаков}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Описание архитектуры модели}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Свойства добавки $\mathcal {L}_2$}{21}{section.3.3}%
+\contentsline {chapter}{\chapternumberline {4}Численные эксперименты}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Описание постановки задачи}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Описание данных}{23}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Критерии качества}{24}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Метод подбора гиперпараметров и шага обучения}{25}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Grid Search}{25}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Learning Rate Finder}{25}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}DeepHit в задаче бинарной классификации}{26}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Число эпох обучения = 3}{26}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Число эпох обучения = 30}{27}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}DeepHit в задаче многоклассовой классификации}{28}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Вклад признаков моделей}{29}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Значение C-индекса модели}{29}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Интерпретация вероятностей выживания}{29}{subsection.4.6.3}%
+\contentsline {section}{\numberline {4.7}PMF в задаче многоклассовой классификации}{32}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Вклад признаков моделей}{33}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Значение C-индекса модели}{33}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Интерпретация вероятностей выживания}{33}{subsection.4.7.3}%
+\contentsline {section}{\numberline {4.8}Nnet-survival в задаче многоклассовой классификации}{36}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Вклад признаков моделей}{37}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Значение C-индекса модели}{37}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Интерпретация вероятностей выживания}{37}{subsection.4.8.3}%
+\contentsline {section}{\numberline {4.9}Наша модель в задаче многоклассовой классификации}{41}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Вклад признаков моделей}{42}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Значение C-индекса модели}{42}{subsection.4.9.2}%
+\contentsline {subsection}{\numberline {4.9.3}Интерпретация вероятностей выживания}{42}{subsection.4.9.3}%
+\contentsline {section}{\numberline {4.10}Сравнение различных моделей}{45}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Сравнение метрик}{45}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Вывод по интерпретации вероятностей выживания}{45}{subsection.4.10.2}%
+\contentsline {section}{\numberline {4.11}Наша модель на расширенном датасете}{45}{section.4.11}%
+\contentsline {chapter}{Заключение}{52}{chapter*.41}%
+\contentsline {chapter}{{\cyrillictext \CYRL \cyri \cyrt \cyre \cyrr \cyra \cyrt \cyru \cyrr \cyra }}{53}{chapter*.42}%
